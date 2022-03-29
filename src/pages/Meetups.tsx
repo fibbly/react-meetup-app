@@ -1,7 +1,7 @@
-import { MeetupItemProps } from "@/components/MeetupItem";
 import MeetupList from "@/components/MeetupList";
+import { Meetup } from "@/types/meetup";
 
-const MEETUPS: MeetupItemProps[] = [
+const MEETUPS: Meetup[] = [
     {
         id: "m1",
         title: "First Meetup",

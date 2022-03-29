@@ -1,19 +1,33 @@
+import { useContext } from "react";
 import Card from "@/ui/Card";
-
-export interface MeetupItemProps {
-    id: string;
-    title: string;
-    date: string;
-    address: string;
-    description: string;
-}
+import { Meetup } from "@/types/meetup";
+import JoinedMeetupsContext from "@/store/meetup-context";
 
 const MeetupItem = ({
+    id,
     title,
     date,
     address,
     description,
-}: MeetupItemProps): JSX.Element => {
+}: Meetup): JSX.Element => {
+    const joinedMeetupsCtx = useContext(JoinedMeetupsContext);
+
+    const meetupJoined = joinedMeetupsCtx.meetupIsJoined(id);
+
+    const toggleMeetupStatusHandler = () => {
+        if (meetupJoined) {
+            joinedMeetupsCtx.leaveMeetup(id);
+        } else {
+            joinedMeetupsCtx.joinMeetup({
+                id,
+                title,
+                date,
+                address,
+                description,
+            });
+        }
+    };
+
     return (
         <li className="w-full">
             <Card>
@@ -26,8 +40,11 @@ const MeetupItem = ({
                     <p>{description}</p>
                 </div>
                 <div className="actions flex flex-row justify-end bg-slate-100">
-                    <button className="bg-blue-500 text-white rounded-md px-4 py-1">
-                        Join
+                    <button
+                        className="bg-blue-500 text-white rounded-md px-4 py-1"
+                        onClick={toggleMeetupStatusHandler}
+                    >
+                        {meetupJoined ? "Leave" : "Join"}
                     </button>
                 </div>
             </Card>

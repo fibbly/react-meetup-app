@@ -1,18 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-
-import NewMeetupPage from "@/pages/NewMeetup";
-import MyMeetupsPage from "@/pages/MyMeetups";
-import MeetupsPage from "@/pages/Meetups";
 import Layout from "@/layout/Layout";
+import routes from "./routes";
+import { useAuth } from "./hooks/useAuth";
 
 function App() {
+    const { isAuthenticated, loading } = useAuth();
+
     return (
         <Layout>
             <div className="grow">
                 <Routes>
-                    <Route path="/" element={<MeetupsPage />} />
-                    <Route path="/new-meetup" element={<NewMeetupPage />} />
-                    <Route path="/my-meetups" element={<MyMeetupsPage />} />
+                    {routes.map((route, index) => (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={route.element}
+                        />
+                    ))}
                 </Routes>
             </div>
         </Layout>

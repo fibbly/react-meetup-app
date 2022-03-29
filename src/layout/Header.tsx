@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import routes from "@/routes";
 
 const Navigation = (): JSX.Element => {
-    const routes = [
-        { path: "/", title: "Meetups" },
-        { path: "/new-meetup", title: "New Meetup" },
-        { path: "/my-meetups", title: "My Meetups" },
-    ];
-
     const location = useLocation();
     const [title, setTitle] = useState<string | undefined>(routes[0].title);
 

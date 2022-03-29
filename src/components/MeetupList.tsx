@@ -1,7 +1,8 @@
-import MeetupItem, { MeetupItemProps } from "./MeetupItem";
+import { Meetup } from "@/types/meetup";
+import MeetupItem from "./MeetupItem";
 
 interface MeetupListProps {
-    meetups: MeetupItemProps[];
+    meetups: Meetup[];
 }
 
 const MeetupList = ({ meetups }: MeetupListProps): JSX.Element => {

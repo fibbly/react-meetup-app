@@ -1,23 +1,33 @@
 import { Link, useLocation } from "react-router-dom";
 
-const Footer = (): JSX.Element => {
+interface NavigationProps {
+    disabled?: boolean;
+}
+
+const Navigation = ({ disabled }: NavigationProps): JSX.Element => {
     const location = useLocation();
 
+    if (disabled) return <></>;
+
     const routes = [
-        { path: "/", text: "Find Meetups" },
-        { path: "/new-meetup", text: "Create Meetup" },
-        { path: "/my-meetups", text: "My Meetups" },
+        { path: "/", text: "Find\nMeetups" },
+        { path: "/new-meetup", text: "Create\nMeetup" },
+        { path: "/my-meetups", text: "My\nMeetups" },
     ];
 
     return (
         <nav className="bg-slate-100 w-screen">
-            <ul className="flex gap-2 justify-between w-full text-center">
+            <ul className="flex justify-between w-full text-center">
                 {routes.map((route, index) => (
-                    <Link to={route.path} key={index}>
+                    <Link
+                        to={route.path}
+                        key={index}
+                        className={`w-full ${
+                            index !== routes.length - 1 ? "border-r-2" : ""
+                        }`}
+                    >
                         <li
-                            className={`px-4 py-8 ${
-                                index !== routes.length - 1 ? "border-r-2" : ""
-                            } ${
+                            className={`px-4 py-8 h-full whitespace-pre-wrap ${
                                 location.pathname === route.path
                                     ? "bg-blue-500 text-white font-bold"
                                     : ""
@@ -32,4 +42,4 @@ const Footer = (): JSX.Element => {
     );
 };
 
-export default Footer;
+export default Navigation;
