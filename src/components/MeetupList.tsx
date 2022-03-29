@@ -6,7 +6,7 @@ interface MeetupListProps {
 
 const MeetupList = ({ meetups }: MeetupListProps): JSX.Element => {
     return (
-        <ul className="bg-zinc-200 h-full overflow-scroll flex flex-col gap-4 items-center p-4">
+        <ul className="bg-zinc-200 h-full overflow-scroll flex flex-col items-center">
             {meetups.map((meetup, index) => (
                 <MeetupItem
                     key={meetup.id}

@@ -10,12 +10,14 @@ const Footer = (): JSX.Element => {
     ];
 
     return (
-        <nav className="bg-slate-300 w-screen">
+        <nav className="bg-slate-100 w-screen">
             <ul className="flex gap-2 justify-between w-full text-center">
                 {routes.map((route, index) => (
                     <Link to={route.path} key={index}>
                         <li
                             className={`px-4 py-8 ${
+                                index !== routes.length - 1 ? "border-r-2" : ""
+                            } ${
                                 location.pathname === route.path
                                     ? "bg-blue-500 text-white font-bold"
                                     : ""

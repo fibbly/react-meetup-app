@@ -1,5 +1,7 @@
+import MeetupForm from "@/components/MeetupForm";
+
 const NewMeetupPage = (): JSX.Element => {
-    return <h1>New Meetup</h1>;
+    return <MeetupForm />;
 };
 
 export default NewMeetupPage;
