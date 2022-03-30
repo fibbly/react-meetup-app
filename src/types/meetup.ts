@@ -1,6 +1,6 @@
 interface BaseMeetup {
     title: string;
-    date: string;
+    date: Date | string;
     address: string;
     description: string;
 }

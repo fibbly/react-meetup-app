@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Card from "@/ui/Card";
 import { Meetup } from "@/types/meetup";
-import JoinedMeetupsContext from "@/store/meetup-context";
+import JoinedMeetupsContext from "@/store/joinedMeetups";
 
 const MeetupItem = ({
     id,

@@ -7,14 +7,14 @@ const MEETUPS: Meetup[] = [
         title: "First Meetup",
         description: "dsafdasfdasfdas",
         address: "123 Street",
-        date: "3/28/22",
+        date: "3/23/22",
     },
     {
         id: "m2",
         title: "Second Meetup",
         description: "dsafdasfdasfdas",
         address: "123 Street",
-        date: "3/29/22",
+        date: "3/23/22",
     },
 ];
 

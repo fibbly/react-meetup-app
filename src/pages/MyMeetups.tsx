@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import JoinedMeetupsContext from "@/store/meetup-context";
+import JoinedMeetupsContext from "@/store/joinedMeetups";
 import MeetupList from "@/components/MeetupList";
 
 function MyMeetupsPage() {

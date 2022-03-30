@@ -13,7 +13,7 @@ import {
     InMemoryCache,
 } from "@apollo/client";
 import { AuthProvider } from "./hooks/useAuth";
-import { JoinedMeetupsContextProvider } from "@/store/meetup-context";
+import { JoinedMeetupsContextProvider } from "@/store/joinedMeetups";
 
 export const APP_ID = process.env.REACT_APP_ID || "";
 
