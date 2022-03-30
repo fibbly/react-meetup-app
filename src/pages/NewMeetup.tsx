@@ -1,6 +1,9 @@
 import MeetupForm from "@/components/MeetupForm";
 import { NewMeetup } from "@/types/meetup";
-import axios from "axios";
+import * as Realm from "realm-web";
+const {
+    BSON: { ObjectId },
+} = Realm;
 
 const NewMeetupPage = (): JSX.Element => {
     const createMeetupHandler = (meetupData: NewMeetup) => {

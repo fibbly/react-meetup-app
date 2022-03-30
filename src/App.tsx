@@ -1,22 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "@/layout/Layout";
-import routes from "./routes";
-import { useAuth } from "./hooks/useAuth";
+import MeetupsPage from "./pages/Meetups";
+import LoginPage from "@/pages/Login";
+import NewMeetupPage from "@/pages/NewMeetup";
+import MyMeetupsPage from "./pages/MyMeetups";
 
 function App() {
-    const { isAuthenticated, loading } = useAuth();
-
     return (
         <Layout>
             <div className="grow">
                 <Routes>
-                    {routes.map((route, index) => (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            element={route.element}
-                        />
-                    ))}
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/meetups" element={<MeetupsPage />} />
+                    <Route path="/new-meetup" element={<NewMeetupPage />} />
+                    <Route path="/my-meetups" element={<MyMeetupsPage />} />
+                    <Route
+                        path="*"
+                        element={<Navigate to="/meetups" replace />}
+                    />
                 </Routes>
             </div>
         </Layout>

@@ -1,4 +1,4 @@
-const AuthPage = (): JSX.Element => {
+const LoginPage = (): JSX.Element => {
     return (
         <div className="bg-slate-800 h-full flex items-center justify-center">
             <button>Login</button>
@@ -6,4 +6,4 @@ const AuthPage = (): JSX.Element => {
     );
 };
 
-export default AuthPage;
+export default LoginPage;
