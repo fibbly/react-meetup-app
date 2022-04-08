@@ -9,11 +9,11 @@ export const AuthProvider: React.FC = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
     const facebookLogin = async () => {
-        const redirectUri = "http://localhost:3000/meetups";
+        const redirectUri = "http://localhost:3000/auth/facebook/callback";
         const credentials = Realm.Credentials.facebook(redirectUri);
-        const user = await app.logIn(credentials);
-        console.log(`Logged in with id: ${user.id}`);
-        Realm.handleAuthRedirect();
+        app.logIn(credentials).then((user: Realm.User) => {
+            console.log(`Logged in with id: ${user.id}`);
+        });
     };
 
     const tryToLogin = async () => {

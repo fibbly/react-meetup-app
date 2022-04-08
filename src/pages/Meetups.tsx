@@ -20,7 +20,6 @@ const MEETUPS: Meetup[] = [
 ];
 
 const MeetupsPage = (): JSX.Element => {
-    Realm.handleAuthRedirect();
     return <MeetupList meetups={MEETUPS} />;
 };
 
